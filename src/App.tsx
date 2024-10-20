@@ -1,5 +1,4 @@
 import './App.css';
-import CreateTask from './components/CreateTask';
 import Tasks from './components/Tasks';
 
 function App() {
@@ -12,7 +11,6 @@ function App() {
       </header>
       <main>
         <section>
-          <CreateTask />
           <Tasks />
         </section>
       </main>
