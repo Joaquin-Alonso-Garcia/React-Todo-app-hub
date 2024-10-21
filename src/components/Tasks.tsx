@@ -4,28 +4,22 @@ import SingleTask from "./SingleTask";
 
 interface Task {
   name: string;
-  createdAt: Date;
+  // createdAt: Date;
   completed: boolean;
 };
 
 const Tasks: React.FC = () => {
-  const [tasks, setTasks] = useState<Task[]>([]);
+  const [tasks, setTasks] = useState<Task[]>(() => {
+    const storedTasks = sessionStorage.getItem('tasks');
+
+    return storedTasks ? JSON.parse(storedTasks) : [];
+  });
+
   const [filter, setFilter] = useState<'all' | 'completed' | 'incomplete'>('all');
 
   useEffect(() => {
-    localStorage.setItem('tasks', JSON.stringify(tasks));
+    sessionStorage.setItem('tasks', JSON.stringify(tasks));
   }, [tasks]);
-
-  useEffect(() => {
-    const storedTasks = localStorage.getItem('tasks');
-
-    if (storedTasks) {
-      setTasks(JSON.parse(storedTasks).map((task: Task) => ({
-        ...task,
-        createdAt: new Date(task.createdAt),
-      })));
-    }
-  }, []);
 
   const addTask = (newTask: Task) => {
     setTasks([...tasks, newTask]);
@@ -69,19 +63,23 @@ const Tasks: React.FC = () => {
     <>
       <CreateTask addTask={addTask} />
 
-      <div className="flex flex-col px-5 py-2 bg-white rounded-md tasks-container">
-        {filterTasks().map((task, index) => (
-          <SingleTask
-            key={index}
-            task={task}
-            toggleCompleted={() => toggleTaskCompleted(index)}
-            deleteTask={() => deleteTask(index)}
-          />
-        ))}
+      <div className="flex flex-col mb-12 bg-white rounded-md tasks-container">
+        <ul>
+          {filterTasks().map((task, index) => (
+            <li key={index}>
+              <SingleTask
+                key={index}
+                task={task}
+                toggleCompleted={() => toggleTaskCompleted(index)}
+                deleteTask={() => deleteTask(index)}
+              />
+            </li>
+          ))}
+        </ul>
 
-        <div className="flex justify-between text-gray-500 actions">
-          <p className="remaining-tasks">{updateCurrentTasks()} tasks left</p>
-          <div className="flex gap-5 filters">
+        <div className="flex items-center justify-between px-5 text-gray-400 actions">
+          <p className="remaining-tasks font-secondary">{updateCurrentTasks()} tasks left</p>
+          <div className="flex gap-5 py-4 filters font-secondary">
             <button
               className={`font-bold hover:text-gray-600 ${filter === 'all' ? 'text-blue-600' : ''}`}
               onClick={() => setFilter('all')}
@@ -101,7 +99,9 @@ const Tasks: React.FC = () => {
               Completed
             </button>
           </div>
-          <button onClick={() => deleteCompletedTasks()}>Clear Completed</button>
+          <button onClick={() => deleteCompletedTasks()} className="hover:text-gray-600 font-secondary">
+            Clear Completed
+          </button>
         </div>
       </div>
     </>
