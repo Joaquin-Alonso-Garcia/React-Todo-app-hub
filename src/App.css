@@ -34,7 +34,7 @@
 } */
 
 body {
-  background-image: url('/images/bg-desktop-light.jpg');
+  background-image: url('/public/assets/images/bg-desktop-light.jpg');
   background-position-x: center;
   background-position-y: 0;
   background-repeat: no-repeat;
