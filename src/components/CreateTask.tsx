@@ -36,7 +36,6 @@ const CreateTask: React.FC<CreateTaskProps> = ({ addTask }) => {
         onClick={handleAddTask}
         className="inline-flex items-center justify-center p-2 border-[0.5px] border-veryLightGrayishBlue rounded-full hover:bg-checkBackground add-task-btn group w-6 h-[22px]"
       >
-        <img src="/assets/images/icon-check.svg" alt="add task icon" className="hidden group-hover:inline-block" />
       </button>
 
       <label htmlFor="newTask" className="text-gray-500"></label>
