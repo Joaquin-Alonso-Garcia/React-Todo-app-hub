@@ -7,14 +7,29 @@ export default {
   ],
   theme: {
     fontFamily: {
-      'primary': ['BarQ-Bold'],
-      'secondary': ['Josefin-Sans-Regular'],
+      'primary': ['Josefin Sans', 'sans-serif'],
     },
     extend: {
-      backgroundColor: {
-        'primary': ['#ffffff'],
-        'secondary': ['#25273c'],
+      backgroundImage: {
+        'checkBackground': 'linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%))',
       },
+      colors: {
+        'brightBlue': 'hsl(220, 98%, 61%)',
+        'veryLightGray': 'hsl(0, 0%, 98%)',
+        'veryLightGrayishBlue': 'hsl(236, 33%, 92%)',
+        'lightGrayishBlue': 'hsl(233, 11%, 84%)',
+        'grayishBlue': 'hsl(236, 9%, 61%)',
+        'veryDarkGrayishBlue-100': 'hsl(235, 19%, 35%)',
+        'darkBlue': 'hsl(235, 21%, 11%)',
+        'darkDesaturatedBlue': 'hsl(235, 24%, 19%)',
+        'darkLightGrayishBlue': 'hsl(234, 39%, 85%)',
+        'darkGrayishBlue': 'hsl(234, 11%, 52%)',
+        'darkGrayishBlue-200': 'hsl(233, 14%, 35%)',
+        'darkGrayishBlue-300': 'hsl(237, 14%, 26%)',
+      },
+      screens: {
+        'md': '600px',
+      }
     },
   },
   plugins: [],

@@ -63,7 +63,7 @@ const Tasks: React.FC = () => {
     <>
       <CreateTask addTask={addTask} />
 
-      <div className="flex flex-col mb-12 bg-white rounded-md dark:bg-secondary-0 dark:text-gray-300 tasks-container">
+      <div className="flex flex-col mb-6 bg-white rounded-md md:mb-14 text-veryDarkGrayishBlue-100 dark:bg-darkDesaturatedBlue dark:text-gray-300 tasks-container">
         <ul>
           {filterTasks().map((task, index) => (
             <li key={index}>
@@ -77,33 +77,54 @@ const Tasks: React.FC = () => {
           ))}
         </ul>
 
-        <div className="flex items-center justify-between px-5 text-gray-400 dark:text-gray-600 actions">
-          <p className="remaining-tasks font-secondary">{updateCurrentTasks()} tasks left</p>
-          <div className="flex gap-5 py-4 filters font-secondary">
+        <div className="flex items-center justify-between px-5 py-4 text-grayishBlue dark:text-gray-600 actions">
+          <p className="remaining-tasks font-primary">{updateCurrentTasks()} tasks left</p>
+          <div className="hidden gap-5 md:flex filters font-primary">
             <button
-              className={`font-bold hover:text-gray-600 dark:hover:text-white ${filter === 'all' ? 'text-blue-600' : ''}`}
+              className={`font-bold hover:text-veryDarkGrayishBlue-100 dark:hover:text-white ${filter === 'all' ? 'text-brightBlue dark:hover:border-veryLightGrayishBlue' : ''}`}
               onClick={() => setFilter('all')}
             >
               All
             </button>
             <button
-              className={`font-bold hover:text-gray-600 dark:hover:text-white ${filter === 'incomplete' ? 'text-blue-600' : ''}`}
+              className={`font-bold hover:text-veryDarkGrayishBlue-100 dark:hover:text-white ${filter === 'incomplete' ? 'text-brightBlue dark:hover:border-veryLightGrayishBlue' : ''}`}
               onClick={() => setFilter('incomplete')}
             >
               Active
             </button>
             <button
-              className={`font-bold hover:text-gray-600 dark:hover:text-white ${filter === 'completed' ? 'text-blue-600' : ''}`}
+              className={`font-bold hover:text-veryDarkGrayishBlue-100 dark:hover:text-white ${filter === 'completed' ? 'text-brightBlue dark:hover:border-veryLightGrayishBlue' : ''}`}
               onClick={() => setFilter('completed')}
             >
               Completed
             </button>
           </div>
-          <button onClick={() => deleteCompletedTasks()} className="hover:text-gray-600 dark:hover:text-white font-secondary">
+          <button onClick={() => deleteCompletedTasks()} className="hover:text-veryDarkGrayishBlue-100 dark:hover:text-white font-primary">
             Clear Completed
           </button>
         </div>
       </div>
+
+      <div className="flex justify-center gap-5 py-4 mb-8 bg-white rounded-md mobile-filters md:hidden font-primary dark:bg-darkDesaturatedBlue text-grayishBlue dark:text-gray-600">
+          <button
+            className={`font-bold hover:text-veryDarkGrayishBlue-100 dark:hover:text-white ${filter === 'all' ? 'text-brightBlue dark:hover:border-veryLightGrayishBlue' : ''}`}
+            onClick={() => setFilter('all')}
+          >
+            All
+          </button>
+          <button
+            className={`font-bold hover:text-veryDarkGrayishBlue-100 dark:hover:text-white ${filter === 'incomplete' ? 'text-brightBlue dark:hover:border-veryLightGrayishBlue' : ''}`}
+            onClick={() => setFilter('incomplete')}
+          >
+            Active
+          </button>
+          <button
+            className={`font-bold hover:text-veryDarkGrayishBlue-100 dark:hover:text-white ${filter === 'completed' ? 'text-brightBlue dark:hover:border-veryLightGrayishBlue' : ''}`}
+            onClick={() => setFilter('completed')}
+          >
+            Completed
+          </button>
+        </div>
     </>
   )
 }

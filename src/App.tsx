@@ -27,9 +27,9 @@ function App() {
         <button onClick={toogleDarkMode}>
           {
             darkMode ? (
-              <img src="/assets/images/icon-moon.svg" alt="moon icon" className='w-[26px] h-[26px]' />
-            ) : (
               <img src="/assets/images/icon-sun.svg" alt="sun icon" className='w-[26px] h-[26px]' />
+            ) : (
+              <img src="/assets/images/icon-moon.svg" alt="moon icon" className='w-[26px] h-[26px]' />
             )
           }
         </button>
@@ -37,7 +37,7 @@ function App() {
       <main>
         <section>
           <Tasks />
-          <p className='text-gray-400 font-secondary dark:text-gray-600'>Drag and drop to reaorder list</p>
+          <p className='text-grayishBlue font-primary dark:text-gray-600'>Drag and drop to reaorder list</p>
         </section>
       </main>
     </>

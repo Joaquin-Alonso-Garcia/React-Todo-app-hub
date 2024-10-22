@@ -1,20 +1,14 @@
 @font-face {
-  font-family: 'BarQ-Bold';
-    src:url('BarQ-Bold.ttf.woff') format('woff'),
-        url('BarQ-Bold.ttf.svg#BarQ-Bold') format('svg'),
-        url('BarQ-Bold.ttf.eot'),
-        url('BarQ-Bold.ttf.eot?#iefix') format('embedded-opentype');
-    font-weight: normal;
+  font-family: 'Josefin Sans';
+    src:url('/public/assets/fonts/JosefinSans-Regular.ttf') format('truetype');
+    font-weight: 400;
     font-style: normal;
 }
 
 @font-face {
-  font-family: 'Josefin-Sans-Regular';
-    src:url('Josefin-Sans-Regular.ttf.woff') format('woff'),
-        url('Josefin-Sans-Regular.ttf.svg#Josefin-Sans-Regular') format('svg'),
-        url('Josefin-Sans-Regular.ttf.eot'),
-        url('Josefin-Sans-Regular.ttf.eot?#iefix') format('embedded-opentype');
-    font-weight: normal;
+  font-family: 'Josefin Sans';
+    src:url('/public/assets/fonts/JosefinSans-Bold.ttf') format('truetype');
+    font-weight: 700;
     font-style: normal;
 }
 
@@ -31,11 +25,12 @@ body {
   background-position-y: 0;
   background-repeat: no-repeat;
   background-size: auto 300px;
+  background-color: hsl(0, 0%, 98%);
 }
 
 html.dark body {
   background-image: url('/assets/images/bg-desktop-dark.jpg');
-  background-color: #181824;
+  background-color: hsl(235, 21%, 11%);
 }
 
 .tasks-container {
