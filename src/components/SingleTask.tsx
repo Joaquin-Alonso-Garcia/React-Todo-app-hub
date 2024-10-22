@@ -12,7 +12,7 @@ interface SingleTaskProps {
 
 const SingleTask: React.FC<SingleTaskProps> = ({ task, toggleCompleted, deleteTask }) => {
   return (
-    <div className="flex justify-between px-5 py-4 border-b border-gray-300 border-solid task">
+    <div className="flex justify-between px-5 py-4 border-b border-gray-300 border-solid dark:border-gray-600 task">
       <div className="flex">
         <input
           type="checkbox"
@@ -27,7 +27,7 @@ const SingleTask: React.FC<SingleTaskProps> = ({ task, toggleCompleted, deleteTa
         >
           <img src="/assets/images/icon-check.svg" alt="check" className="w-2 h-2" />
         </label>
-        <span className={`font-secondary ${task.completed ? 'line-through' : ''}`}>{task.name}</span>
+        <span className={`font-secondary ${task.completed ? 'line-through opacity-30' : ''}`}>{task.name}</span>
       </div>
       {/* <span>(Created: {task.createdAt.toLocaleDateString()})</span> */}
       <button onClick={deleteTask}><img src="/assets/images/icon-cross.svg" alt="cross icon" /></button>

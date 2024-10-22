@@ -63,7 +63,7 @@ const Tasks: React.FC = () => {
     <>
       <CreateTask addTask={addTask} />
 
-      <div className="flex flex-col mb-12 bg-white rounded-md tasks-container">
+      <div className="flex flex-col mb-12 bg-white rounded-md dark:bg-secondary-0 dark:text-gray-300 tasks-container">
         <ul>
           {filterTasks().map((task, index) => (
             <li key={index}>
@@ -77,29 +77,29 @@ const Tasks: React.FC = () => {
           ))}
         </ul>
 
-        <div className="flex items-center justify-between px-5 text-gray-400 actions">
+        <div className="flex items-center justify-between px-5 text-gray-400 dark:text-gray-600 actions">
           <p className="remaining-tasks font-secondary">{updateCurrentTasks()} tasks left</p>
           <div className="flex gap-5 py-4 filters font-secondary">
             <button
-              className={`font-bold hover:text-gray-600 ${filter === 'all' ? 'text-blue-600' : ''}`}
+              className={`font-bold hover:text-gray-600 dark:hover:text-white ${filter === 'all' ? 'text-blue-600' : ''}`}
               onClick={() => setFilter('all')}
             >
               All
             </button>
             <button
-              className={`font-bold hover:text-gray-600 ${filter === 'incomplete' ? 'text-blue-600' : ''}`}
+              className={`font-bold hover:text-gray-600 dark:hover:text-white ${filter === 'incomplete' ? 'text-blue-600' : ''}`}
               onClick={() => setFilter('incomplete')}
             >
               Active
             </button>
             <button
-              className={`font-bold hover:text-gray-600 ${filter === 'completed' ? 'text-blue-600' : ''}`}
+              className={`font-bold hover:text-gray-600 dark:hover:text-white ${filter === 'completed' ? 'text-blue-600' : ''}`}
               onClick={() => setFilter('completed')}
             >
               Completed
             </button>
           </div>
-          <button onClick={() => deleteCompletedTasks()} className="hover:text-gray-600 font-secondary">
+          <button onClick={() => deleteCompletedTasks()} className="hover:text-gray-600 dark:hover:text-white font-secondary">
             Clear Completed
           </button>
         </div>
